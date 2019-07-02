@@ -1,9 +1,27 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get new sign up link" do
-    get signup_url
+  test "should get new" do
+    get users_new_url
     assert_response :success
+  end
+
+  def setup
+    @user = User.new(name: "Fake Name", email: "email@example.com")
+  end
+
+  test "should be a valid user" do
+      assert @user.valid?
+  end
+
+  test "name should be present" do
+    @user.name = ""
+    assert_not @user.valid?
+  end
+
+  test "email should be present" do
+    @user.email = ""
+    assert_not @user.valid?
   end
 
 end

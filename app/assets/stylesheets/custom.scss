@@ -2,6 +2,9 @@
 @import "bootstrap";
 $custom_blue: #70daed;
 
+@mixin box_sizing {
+  border:1px solid #404040;
+}
 
 body {
   padding-top: 0px;
@@ -44,6 +47,7 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  @include box_sizing;
 }
 
 #logo:hover {
@@ -112,4 +116,14 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 40%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
 }
